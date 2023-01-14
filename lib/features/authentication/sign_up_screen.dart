@@ -15,12 +15,6 @@ class SignUpScreen extends StatelessWidget {
     ));
   }
 
-  void _onEmailTap(BuildContext context) {
-    Navigator.of(context).push(MaterialPageRoute(
-      builder: (context) => const UsernameScreen(),
-    ));
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +24,9 @@ class SignUpScreen extends StatelessWidget {
             horizontal: Sizes.size40,
           ),
           child: Column(
-            children: [
+            children: const [
               Gaps.v80,
-              const Text(
+              Text(
                 'Sign up for TikTok',
                 style: TextStyle(
                   fontSize: Sizes.size24,
@@ -40,7 +34,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
               ),
               Gaps.v20,
-              const Text(
+              Text(
                 'Create a profile, follow other accounts, make your own videos, and more.',
                 style: TextStyle(
                   fontSize: Sizes.size16,
@@ -49,15 +43,13 @@ class SignUpScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               Gaps.v40,
-              GestureDetector(
-                onTap: () => _onEmailTap(context),
-                child: const AuthButton(
-                  text: 'Use email & password',
-                  icon: FaIcon(FontAwesomeIcons.user),
-                ),
+              AuthButton(
+                text: 'Use email & password',
+                icon: FaIcon(FontAwesomeIcons.user),
+                targetScreen: UsernameScreen(),
               ),
               Gaps.v16,
-              const AuthButton(
+              AuthButton(
                 text: 'Continue with Apple',
                 icon: FaIcon(FontAwesomeIcons.apple),
               )
