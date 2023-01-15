@@ -64,7 +64,10 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
               Gaps.v28,
               GestureDetector(
                 onTap: _onSubmitTap,
-                child: const FormButton(disabled: false),
+                child: const FormButton(
+                  disabled: false,
+                  label: 'Submit',
+                ),
               ),
             ],
           ),
