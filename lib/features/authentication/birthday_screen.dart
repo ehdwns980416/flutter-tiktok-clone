@@ -15,6 +15,8 @@ class BirthdayScreen extends StatefulWidget {
 class _BirthdayScreenState extends State<BirthdayScreen> {
   final TextEditingController _birthdayController = TextEditingController();
 
+  // 가입 가능한 최소 나이
+  static const minimumAge = 18;
   late final DateTime initialDate;
 
   @override
@@ -25,9 +27,10 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
       final DateTime nowDate = DateTime.now();
 
       // 한국식 세는 나이 계산법
-      // initialDate = DateTime(nowDate.year - 11, 12, 31);
+      // initialDate = DateTime(nowDate.year - (minimumAge - 1), 12, 31);
       // 만 나이 계산법
-      initialDate = DateTime(nowDate.year - 12, nowDate.month, nowDate.day);
+      initialDate =
+          DateTime(nowDate.year - minimumAge, nowDate.month, nowDate.day);
     });
 
     _setTextFieldDate(initialDate);
