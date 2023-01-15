@@ -15,11 +15,21 @@ class BirthdayScreen extends StatefulWidget {
 class _BirthdayScreenState extends State<BirthdayScreen> {
   final TextEditingController _birthdayController = TextEditingController();
 
-  DateTime initialDate = DateTime.now();
+  late final DateTime initialDate;
 
   @override
   void initState() {
     super.initState();
+
+    setState(() {
+      final DateTime nowDate = DateTime.now();
+
+      // 한국식 세는 나이 계산법
+      // initialDate = DateTime(nowDate.year - 11, 12, 31);
+      // 만 나이 계산법
+      initialDate = DateTime(nowDate.year - 12, nowDate.month, nowDate.day);
+    });
+
     _setTextFieldDate(initialDate);
   }
 
